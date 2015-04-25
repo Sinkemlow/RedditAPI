@@ -14,7 +14,6 @@ url = "http://www.reddit.com/r/%s/hot/.json" % subreddit
 headers = { 'User-Agent' : "API Testing Project 0.2"}
 
 r = requests.get(url, headers=headers)
-r.text
 
 # Convert it to a Python dictionary
 data = json.loads(r.text)
