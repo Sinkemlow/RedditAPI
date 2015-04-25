@@ -11,7 +11,7 @@ print
 print "Top 25 Posts in /r/%s:" % subreddit
 
 url = "http://www.reddit.com/r/%s/hot/.json" % subreddit
-headers = { 'User-Agent' : "API Testing Project 0.1"}
+headers = { 'User-Agent' : "API Testing Project 0.2"}
 
 r = requests.get(url, headers=headers)
 r.text
