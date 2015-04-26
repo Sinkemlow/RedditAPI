@@ -29,6 +29,5 @@ def show_hot(sub_data):
 
 def main():
     show_hot(get_sub())
-    print "Just checking!"
 
 main()
