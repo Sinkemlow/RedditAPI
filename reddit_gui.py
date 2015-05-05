@@ -8,11 +8,13 @@ def get_sub(subreddit):
     url = "http://www.reddit.com/r/%s/hot/.json" % subreddit
     headers = {'User-Agent': "API Testing Project 0.2"}
     r = requests.get(url, headers=headers)
-    data = json.loads(r.text)
-    return data
+    json_data = json.loads(r.text)
+    return json_data
 
 
 def get_posts(sub_data):
+
+    all_posts = []
 
     for item in sub_data['data']['children']:
 
@@ -26,16 +28,21 @@ def get_posts(sub_data):
         post_posted = "Posted: %s" % posted_date_time
 
         post_data = "%s\n%s\n%s\n%s\n%s\n%s\n" % (post_spacer, post_title, post_author, post_upvotes, post_url, post_posted)
-        print post_data
 
-    return post_data
+        all_posts.append(post_data)
 
+    return all_posts
+
+
+#def main():
+#    user_input = top_frame_entry.get()
+#    data = get_posts(get_sub(user_input))
+#    text_frame.insert(END, data)
 
 def main():
     user_input = top_frame_entry.get()
-    data = get_posts(get_sub(user_input))
-    text_frame.insert(END, data)
-
+    for post in get_posts(get_sub(user_input)):
+        text_frame.insert(END, post)
 
 root_window = Tk()
 root_window.title("Reddit App")
