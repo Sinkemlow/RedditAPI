@@ -34,18 +34,13 @@ def get_posts(sub_data):
     return all_posts
 
 
-#def main():
-#    user_input = top_frame_entry.get()
-#    data = get_posts(get_sub(user_input))
-#    text_frame.insert(END, data)
-
 def main():
     user_input = top_frame_entry.get()
     for post in get_posts(get_sub(user_input)):
         text_frame.insert(END, post)
 
 root_window = Tk()
-root_window.title("Reddit App")
+root_window.title("Reddit Top 25 App")
 root_window.geometry("800x500")
 
 top_frame = Frame(root_window)
