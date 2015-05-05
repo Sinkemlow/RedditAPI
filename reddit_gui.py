@@ -62,5 +62,4 @@ bottom_frame_content = Label(bottom_frame)
 text_frame = Text(bottom_frame)
 text_frame.pack()
 
-
 root_window.mainloop()
